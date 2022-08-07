@@ -10,6 +10,7 @@ export default defineConfig({
       "/auth": "http://127.0.0.1:4000",
       "/api": "http://127.0.0.1:4000",
       "/controller": "http://127.0.0.1:4000",
+      "/downfile": "http://127.0.0.1:4000",
     },
   },
   resolve: {
