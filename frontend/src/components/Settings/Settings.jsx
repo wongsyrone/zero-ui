@@ -9,7 +9,7 @@ import {
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 import { useTranslation } from "react-i18next";
-import localesList from "utils/localesList.json";
+import localesList from "generated/localesList.json";
 
 function Settings() {
   const { t, i18n } = useTranslation();

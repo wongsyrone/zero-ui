@@ -22,6 +22,7 @@ export default defineConfig({
       components: "/src/components",
       utils: "/src/utils",
       external: "/src/external",
+      generated: "/src/generated",
     },
   },
   build: {

@@ -37,7 +37,7 @@ export default function GenerateLocalesPlugin() {
         const outputPath = path.resolve(
           __dirname,
           "src",
-          "utils",
+          "generated",
           "localesList.json"
         );
         fs.writeFileSync(outputPath, JSON.stringify(localesList, null, 2));
