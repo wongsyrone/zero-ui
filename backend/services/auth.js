@@ -33,3 +33,15 @@ export async function isAuthorized(req, res, next) {
     }
   }
 }
+
+export async function isUserLoggedIn(req) {
+  if (process.env.ZU_DISABLE_AUTH === "true") {
+    // assuming logged in
+    return true;
+  }
+  if (!req.token) {
+    return false;
+  }
+  const user = await db.get("users").find({ token: req.token }).value();
+  return !!user ? true : false;
+}

@@ -15,6 +15,7 @@ import authRoutes from "./routes/auth.js";
 import networkRoutes from "./routes/network.js";
 import memberRoutes from "./routes/member.js";
 import controllerRoutes from "./routes/controller.js";
+import downFileRoutes from "./routes/downfile.js";
 
 const app = express();
 const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
@@ -89,6 +90,7 @@ routerController.use("", controllerRoutes);
 app.use("/auth", authRoutes);
 app.use("/api", routerAPI); // offical SaaS API compatible
 app.use("/controller", routerController); // other controller-specific routes
+app.use("/downfile", downFileRoutes); // file download routes
 
 // error handlers
 app.get("*", async function (req, res) {
