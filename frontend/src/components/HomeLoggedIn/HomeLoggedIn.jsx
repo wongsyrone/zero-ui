@@ -5,6 +5,7 @@ import { Divider, Button, Grid, Typography, Box } from "@material-ui/core";
 import useStyles from "./HomeLoggedIn.styles";
 
 import NetworkButton from "./components/NetworkButton";
+import DownloadFile from "./components/DownloadFile";
 
 import API from "utils/API";
 import { generateNetworkConfig } from "utils/NetworkConfig";
@@ -44,6 +45,8 @@ function HomeLoggedIn() {
       >
         {t("createNetwork")}
       </Button>
+      <Divider orientation="vertical" />
+      <DownloadFile />
       <Divider />
       <Grid container spacing={3} className={classes.container}>
         <Grid item xs={6}>
