@@ -4,7 +4,7 @@ import * as url from "url";
 
 const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 
-export default function GenerateLocalesPlugin() {
+export default function generateLocalesPlugin() {
   return {
     name: "generate-locales",
     buildStart() {

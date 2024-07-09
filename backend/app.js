@@ -51,6 +51,10 @@ if (
     ["/app", "/app/*"],
     express.static(path.join(__dirname, "..", "frontend", "build"))
   );
+  app.use(
+    ["/locales", "/locales/*"],
+    express.static(path.join(__dirname, "..", "frontend", "build", "locales"))
+  );
   app.get(["/app/network/*"], function (req, res) {
     res.sendFile(path.join(__dirname, "..", "frontend", "build", "index.html"));
   });

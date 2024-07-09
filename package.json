@@ -16,6 +16,8 @@
     "dev": "concurrently \"cd frontend && cross-env FAST_REFRESH=true yarn start\" \"cd backend && cross-env NODE_ENV=development ZU_DEFAULT_USERNAME=admin ZU_DEFAULT_PASSWORD=zero-ui nodemon ./bin/www --ignore data/db.json\"",
     "build": "cd frontend && cross-env GENERATE_SOURCEMAP=false yarn build",
     "prod": "cd backend && cross-env NODE_ENV=production ZU_SECURE_HEADERS=false yarn start",
+    "docker:build": "docker build . -t dec0dos/zero-ui -f docker/zero-ui/Dockerfile --progress=plain",
+    "docker:run": "docker run --rm --env-file .env -e ZU_CONTROLLER_ENDPOINT=http://host.docker.internal:9993 -p 4000:4000 --name zero-ui dec0dos/zero-ui",
     "release": "standard-version && git push --follow-tags origin main && git add CHANGELOG.md",
     "commit": "yarn git-cz"
   },

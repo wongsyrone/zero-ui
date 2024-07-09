@@ -41,7 +41,8 @@
     "rimraf": "^5.0.5",
     "source-map-explorer": "^2.5.3",
     "typescript": "^5.2.2",
-    "vite": "^4.4.11"
+    "vite": "^4.4.11",
+    "vite-plugin-static-copy": "^1.0.6"
   },
   "scripts": {
     "start": "vite",

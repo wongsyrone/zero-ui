@@ -1,7 +1,8 @@
 import process from "node:process";
 import { defineConfig, searchForWorkspaceRoot } from "vite";
 import react from "@vitejs/plugin-react";
-import GenerateLocalesPlugin from "./vite-plugin-generate-locales.js";
+import { viteStaticCopy } from "vite-plugin-static-copy";
+import generateLocalesPlugin from "./vite-plugin-generate-locales.js";
 
 export default defineConfig({
   base: "/app",
@@ -29,5 +30,16 @@ export default defineConfig({
     outDir: "build",
     chunkSizeWarningLimit: 1000,
   },
-  plugins: [react(), GenerateLocalesPlugin()],
+  plugins: [
+    react(),
+    generateLocalesPlugin(),
+    viteStaticCopy({
+      targets: [
+        {
+          src: "public/locales",
+          dest: "",
+        },
+      ],
+    }),
+  ],
 });
