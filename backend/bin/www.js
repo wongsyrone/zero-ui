@@ -8,8 +8,7 @@ dotenv.config();
 
 import app from "../app.js";
 
-import debug from "debug";
-debug("zero-ui:server");
+console.log("zero-ui:server");
 import http from "node:http";
 
 /**
@@ -86,5 +85,5 @@ function onError(error) {
 function onListening() {
   var addr = server.address();
   var bind = typeof addr === "string" ? "pipe " + addr : "port " + addr?.port;
-  debug("Listening on " + bind);
+  console.log("Listening on " + bind);
 }
