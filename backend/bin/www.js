@@ -45,6 +45,27 @@ if (can_use_tls) {
   };
   server = https.createServer(option, app);
   console.log("setting up TLS server");
+
+  let reloadCert = function() {
+    console.log("reloading TLS cert");
+    server.setSecureContext({
+      cert: fs.readFileSync(cert_path),
+    });
+    console.log("reload TLS cert successfully");
+  };
+  let reloadKey = function() {
+    console.log("reloading TLS key");
+    server.setSecureContext({
+      key: fs.readFileSync(privkey_path),
+    });
+    console.log("reload TLS key successfully");
+  };
+  fs.watch(privkey_path, (eventType, filename) => {
+    if (eventType === "change") reloadKey();
+  });
+  fs.watch(cert_path, (eventType, filename) => {
+    if (eventType === "change") reloadCert();
+  });
 } else {
   server = http.createServer(app);
   console.log("setting up HTTP server");
